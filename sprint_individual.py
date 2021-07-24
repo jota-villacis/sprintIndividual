@@ -33,18 +33,14 @@ pass_usuarios = []
 cuentas = []
 
 
-# Cuentas de usuario
+# Función para crear cuentas de usuario (@dominio.com puede ser reemplazado por cualquier valor)
 def crear_usuario(lista):
     for usuario in lista:
         cuentas_creadas = usuario+'@dominio.com'
         cuentas_usuarios.append(cuentas_creadas)
-        
         #print(f'La cuenta de usuario para {usuario} es: {cuentas_usuarios}')
 
-crear_usuario(usuarios)
-#print(cuentas_usuarios)
-
-# Contraseñas aleatorias
+# Función para crear contraseñas aleatorias
 def crear_pass(inicio,final):
     for i in range(inicio, final):
         #Cadena completa de los caracteres a elegir aleatoriamente
@@ -53,15 +49,19 @@ def crear_pass(inicio,final):
         password = "".join(random.choice(cadena)  for j in range(random.randint(10,50)))
         pass_usuarios.append(password)
 
-crear_pass(1,11)
-#print(pass_usuarios)
-
+# Función para asignar cuenta de usuario y password a la variable cuentas
 def cuentas_creadas(lista1, lista2):
 
     for tupla in zip(lista1, lista2):
         user_pass = (f'El usuario es: {tupla[0]}',f' y su contraseña es: {tupla[1]}' )
         cuentas.append(user_pass)
 
+
+crear_usuario(usuarios)
+#print(cuentas_usuarios)
+
+crear_pass(1,11)
+#print(pass_usuarios)
 
 cuentas_creadas(cuentas_usuarios, pass_usuarios)
 print(cuentas)
